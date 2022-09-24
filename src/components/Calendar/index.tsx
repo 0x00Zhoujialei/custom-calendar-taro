@@ -13,6 +13,8 @@ export interface IProps {
   marks?: CalendarMark[];
   /** 点击回调 */
   onDayClick?: (item: { value: string }) => any;
+  /** 判断是否当前日期可以点击 */
+  canSelectDay?: (item: { value: string }) => boolean;
   /** 长按回调（触发长按事件时不会触发点击事件） */
   onDayLongPress?: (item: { value: string }) => any;
   /** 当前选中的时间 YYYY-MM-DD*/
@@ -151,7 +153,12 @@ class CustomCalendar extends Component<IProps, IState> {
     }
   };
   onClickDate = (value) => {
-    const { onDayClick, onSelectDate } = this.props;
+    const { onDayClick, onSelectDate, canSelectDay } = this.props;
+    if (canSelectDay) {
+      if (!canSelectDay({ value: value.fullDateStr })) {
+        return
+      }
+    }
     let { current, currentCarouselIndex, selectedRange } = this.state;
     if (!selectedRange.start || selectedRange.end) {
       selectedRange = { start: value.fullDateStr, end: "" };
