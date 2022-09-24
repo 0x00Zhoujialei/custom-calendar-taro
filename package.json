@@ -1,9 +1,10 @@
 {
-  "name": "custom-calendar-taro",
+
+  "name": "nick-custom-calendar-taro",
   "version": "1.0.12",
   "private": false,
   "description": "一款基于taro3的自定义日历组件，支持周，月的展示",
-  "author": "pengshixing",
+  "author": "0x00ZhouJialei",
   "license": "MIT",
   "keywords": [
     "taro3",
@@ -13,7 +14,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/P4X666/custom-calendar-taro"
+    "url": "https://github.com/0x00Zhoujialei/custom-calendar-taro.git"
   },
   "main": "index.ts",
   "types": "index.d.ts",
